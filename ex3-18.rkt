@@ -15,3 +15,6 @@
 
 (is-cycle? l) ;; -> #t
 (is-cycle? non-cycle) ;; -> #f
+
+;; the solution is not really correct, since it doesn't detect cycles in the
+;; middle of a list
