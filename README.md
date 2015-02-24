@@ -18,3 +18,7 @@ This uses the extended repl (xrepl) and the `neil/sicp` language pack.
 When I use the Racket repl, I use it in tmux. In one pane is the REPL and in
 another is Vim with tslime.vim. This way I can send expressions to the REPL from
 Vim with one shortcut.
+
+The `#lang planet neil/sicp` at the start of some of these files tell
+DrRacket.app which language to use when interpreting the files. The statements
+are not needed when evaluating the code in the REPL.
