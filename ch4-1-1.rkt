@@ -1,5 +1,5 @@
 (define (eval exp env)
-  (cond ((self-evaluationg? exp) exp)
+  (cond ((self-evaluating? exp) exp)
         ((variable? exp) (lookup-variable-value exp env))
         ((quoted? exp) (text-of-quotation exp))
         ((assignment? exp) (eval-assignment exp env))
