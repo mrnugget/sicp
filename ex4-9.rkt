@@ -1,4 +1,5 @@
 ;; while loop
+
 (define test-exp '(while (> i 0) (display i)))
 
 ;; can be rewritten as a derived expression like this
@@ -18,15 +19,17 @@
   (caddr exp))
 
 (define (while->combination exp)
-  (list
-    (list 'define
-          (list 'while-iter)
-          (make-if (while-condition exp)
-                   (sequence->exp (list (while-body exp) (list 'while-iter)))
-                   '()))
-    (list 'while-iter)))
+  (sequence->exp (list
+                   (list 'define
+                         (list 'while-iter)
+                         (make-if (while-condition exp)
+                                  (sequence->exp (list (while-body exp) (list 'while-iter)))
+                                  '()))
+                   (list 'while-iter))))
 
 ;; To hook it up in eval:
 (while? exp) (eval (while->combination exp) env)
 
 (write (while->combination test-exp))
+
+;; -> (begin (define (while-iter) (if (> i 0) (begin (display i) (while-iter)) ())) (while-iter))
