@@ -369,8 +369,6 @@
     (define-variable! 'false false initial-env)
     initial-env))
 
-(define the-global-environment (setup-environment))
-
 (define (primitive-procedure? proc)
   (tagged-list? proc 'primitive))
 
