@@ -380,7 +380,8 @@
         (list 'cdr cdr)
         (list 'cons cons)
         (list 'null? null?)
-        ;; more primitives
+        (list '+ +)
+        (list '- -)
         ))
 
 (define (primitive-procedure-names)
