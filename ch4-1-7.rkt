@@ -1,4 +1,4 @@
-(define (evaal exp env)
+(define (eval exp env)
   ((analyze exp) env))
 
 (define (analyze exp)
