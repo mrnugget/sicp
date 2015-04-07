@@ -382,6 +382,8 @@
         (list 'null? null?)
         (list '+ +)
         (list '- -)
+        (list '= =)
+        (list '* *)
         ))
 
 (define (primitive-procedure-names)
