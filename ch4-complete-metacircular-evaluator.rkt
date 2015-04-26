@@ -1,3 +1,4 @@
+
 (define apply-in-underlying-scheme apply)
 
 (define (eval exp env)
@@ -239,7 +240,7 @@
   (cdr exp))
 
 (define (cond-else-clause? clause)
-  (eq (cond-predicate clause) 'else))
+  (eq? (cond-predicate clause) 'else))
 
 (define (cond-predicate clause) (car clause))
 
@@ -424,7 +425,7 @@
 
 (define (user-print object)
   (if (compound-procedure? object)
-    (display (list 'compound procedure
+    (display (list 'compound-procedure
                    (procedure-parameters object)
                    (procedure-body object)
                    '<procedure-env>))
