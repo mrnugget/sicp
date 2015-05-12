@@ -1,4 +1,4 @@
-#lang planet neil/sicp
+; #lang planet neil/sicp
 
 ;; helper functions
 (define (tagged-list? exp tag)
@@ -114,7 +114,7 @@
               (else (error "Unknown request -- MACHINE" message))))
       dispatch)))
 
-(define (make-machine register-names ops controller-text)
+(define (make-machine ops controller-text)
   (let ((machine (make-new-machine)))
     ((machine 'install-operations) ops)
     ((machine 'install-instruction-sequence)
@@ -387,7 +387,6 @@
 
 (define gcd-machine
   (make-machine
-    '(a b t)
     (list (list 'rem remainder) (list '= =))
     '(test-b
        (test (op =) (reg b) (const 0))
@@ -405,7 +404,6 @@
 
 (define fib-machine
   (make-machine
-    '(n continue val)
     (list (list '< <) (list '- -) (list '+ +))
     '((assign continue (label fib-done))
       fib-loop
